@@ -4,6 +4,7 @@
 const assert = require('assert')
 const {
   last,
+  sleep,
 } = require('../src/misc')
 
 describe("last", () => {
@@ -13,5 +14,11 @@ describe("last", () => {
 
   it("returns undefined for an empty array", () => {
     assert.strictEqual(last([]), undefined)
+  })
+})
+
+describe("sleep", () => {
+  it("returns a Promise", () => {
+    assert.ok(sleep(1) instanceof Promise)
   })
 })
