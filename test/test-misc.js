@@ -15,7 +15,13 @@ describe("last", () => {
 })
 
 describe("sleep", () => {
-  it("returns a Promise", () => {
-    assert.ok(u.sleep(1) instanceof Promise)
-  })
+  it("returns a Promise", () => assertReturnsPromise(() => u.sleep(1)))
 })
+
+async function assertReturnsPromise(f) {
+  const promise = f()
+  assert.ok(promise instanceof Promise, 'expected a Promise')
+  try {
+    await promise
+  } catch (e) {}
+}
