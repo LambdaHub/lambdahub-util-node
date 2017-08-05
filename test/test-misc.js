@@ -18,6 +18,22 @@ describe("sleep", () => {
   it("returns a Promise", () => assertReturnsPromise(() => u.sleep(1)))
 })
 
+describe("readdir", () => {
+  it("returns a Promise", () => assertReturnsPromise(() => u.readdir('foo')))
+})
+
+describe("stat", () => {
+  it("returns a Promise", () => assertReturnsPromise(() => u.stat('foo')))
+})
+
+describe("exec", () => {
+  it("returns a Promise", () => assertReturnsPromise(() => u.exec('date')))
+})
+
+describe("execFile", () => {
+  it("returns a Promise", () => assertReturnsPromise(() => u.execFile('date')))
+})
+
 async function assertReturnsPromise(f) {
   const promise = f()
   assert.ok(promise instanceof Promise, 'expected a Promise')
