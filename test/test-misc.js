@@ -2,23 +2,20 @@
 // This will probably be released under a permissive license before 2018.
 
 const assert = require('assert')
-const {
-  last,
-  sleep,
-} = require('../src/misc')
+const u = require('../index')
 
 describe("last", () => {
   it("returns the last element of a non-empty array", () => {
-    assert.strictEqual(last([123, 'foo', 'bar']), 'bar')
+    assert.strictEqual(u.last([123, 'foo', 'bar']), 'bar')
   })
 
   it("returns undefined for an empty array", () => {
-    assert.strictEqual(last([]), undefined)
+    assert.strictEqual(u.last([]), undefined)
   })
 })
 
 describe("sleep", () => {
   it("returns a Promise", () => {
-    assert.ok(sleep(1) instanceof Promise)
+    assert.ok(u.sleep(1) instanceof Promise)
   })
 })
